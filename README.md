@@ -25,6 +25,7 @@ Also be sure to checkout other [Free & Open Source Gatsby Themes](https://themes
 
 ## ✨ Features
 
+
 - MDX
 - Fully customizable through the usage of Gatsby Themes (and Theme UI)
 - Light Mode / Dark Mode

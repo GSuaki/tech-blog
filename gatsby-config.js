@@ -6,17 +6,25 @@ const shouldAnalyseBundle = process.env.ANALYSE_BUNDLE
 
 module.exports = {
   siteMetadata: {
-    siteTitleAlt: `Minimal Blog - Gatsby Theme`,
+    siteTitleAlt: `Gabriel Suaki`,
+    siteTitle: 'Gabriel Suaki',
+    title: "Gabriel Suaki",
+    author: "Gabriel Suaki",
+    description: "My site description...",
+    siteUrl: "https://www.gatsbyjs.com/",
   },
   plugins: [
     {
       resolve: `@lekoarts/gatsby-theme-minimal-blog`,
-      // See the theme's README for all available options
       options: {
         navigation: [
           {
             title: `Blog`,
             slug: `/blog`,
+          },
+          {
+            title: `Books`,
+            slug: `/books`,
           },
           {
             title: `About`,
@@ -26,13 +34,27 @@ module.exports = {
         externalLinks: [
           {
             name: `Twitter`,
-            url: `https://twitter.com/lekoarts_de`,
+            url: `https://twitter.com/gsuaki`,
           },
           {
             name: `Instagram`,
-            url: `https://www.instagram.com/lekoarts.de/`,
+            url: `https://www.instagram.com/gsuaki/`,
           },
         ],
+      },
+    },
+    {
+      resolve: `gatsby-theme-i18n`,
+      options: {
+        defaultLang: `pt`,
+        locales: process.env.LOCALES,
+        configPath: require.resolve(`./i18n/config.json`),
+      },
+    },
+    {
+      resolve: `gatsby-theme-i18n-react-intl`,
+      options: {
+        defaultLocale: `./i18n/messages/pt.json`,
       },
     },
     {
@@ -65,6 +87,13 @@ module.exports = {
           },
         ],
       },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `books`,
+        path: `content/books`
+      }
     },
     `gatsby-plugin-offline`,
     `gatsby-plugin-netlify`,

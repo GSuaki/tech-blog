@@ -13,7 +13,7 @@ const LangToggle = () => {
 
   useEffect(() => {
     setPathname(location.pathname);
-  }, [location])
+  }, [])
   
   const isEn = locale === 'en'
   const label = isEn ? 'Portuguese' : 'Inglês'

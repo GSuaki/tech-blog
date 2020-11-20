@@ -1,4 +1,5 @@
 /** @jsx jsx */
+import { useEffect, useState } from "react"
 import { jsx } from "theme-ui"
 import { Link } from "gatsby"
 import { useLocalization } from "gatsby-theme-i18n"
@@ -8,10 +9,15 @@ import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/
 const LangToggle = () => {
   const { locale } = useLocalization()
   const { basePath } = useMinimalBlogConfig()
+  const [pathname, setPathname] = useState('');
 
+  useEffect(() => {
+    setPathname(location.pathname);
+  }, [location])
+  
   const isEn = locale === 'en'
-  const lang = isEn ? `/${location.pathname.replace('/en', '')}` : `/en/${location.pathname}`
   const label = isEn ? 'Portuguese' : 'Inglês'
+  const lang = isEn ? `/${pathname.replace('/en', '')}` : `/en/${pathname}`
 
   return (
     <Link

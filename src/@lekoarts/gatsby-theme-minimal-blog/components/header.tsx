@@ -2,6 +2,7 @@
 import { jsx, useColorMode } from "theme-ui"
 import { Flex } from "@theme-ui/components"
 import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config"
+import LangToggle from "./lang-toggle"
 import ColorModeToggle from "@lekoarts/gatsby-theme-minimal-blog/src/components/colormode-toggle"
 import Navigation from "@lekoarts/gatsby-theme-minimal-blog/src/components/navigation"
 import HeaderExternalLinks from "@lekoarts/gatsby-theme-minimal-blog/src/components/header-external-links"
@@ -22,6 +23,7 @@ const Header = () => {
     <header sx={{ mb: [4] }}>
       <Flex sx={{ alignItems: `center`, justifyContent: `space-between` }}>
         <HeaderTitle />
+        <LangToggle />
         <ColorModeToggle isDark={isDark} toggle={toggleColorMode} />
       </Flex>
       <div

@@ -1,40 +1,27 @@
 /** @jsx jsx */
 import { jsx } from "theme-ui"
+import { Link } from "gatsby"
+import { useLocalization } from "gatsby-theme-i18n"
+import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes"
+import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config"
 
-type Props = {
-  isEn: boolean
-  toggle: (e: any) => void
+const LangToggle = () => {
+  const { locale } = useLocalization()
+  const { basePath } = useMinimalBlogConfig()
+
+  const isEn = locale === 'en'
+  const lang = isEn ? `/${location.pathname.replace('/en', '')}` : `/en/${location.pathname}`
+  const label = isEn ? 'Portuguese' : 'Inglês'
+
+  return (
+    <Link
+      to={replaceSlashes(`/${basePath}${lang}`)}
+      aria-label={isEn ? 'Portuguese' : 'Inglês'}
+      sx={{ color: `heading`, position: 'absolute', right: '100px', textDecoration: `none` }}
+    >
+      {label}
+    </Link>
+  );  
 }
 
-// Adapted from: https://codepen.io/aaroniker/pen/KGpXZo and https://github.com/narative/gatsby-theme-novela/blob/714b6209c5bd61b220370e8a7ad84c0b1407946a/%40narative/gatsby-theme-novela/src/components/Navigation/Navigation.Header.tsx
-
-const ColorModeToggle = ({ isEn, toggle }: Props) => (
-  <button
-    onClick={toggle}
-    type="button"
-    aria-label={isEn ? `Portuguese` : `English`}
-    title={isEn ? `Portuguese` : `English`}
-    sx={{
-      opacity: 0.65,
-      position: `relative`,
-      borderRadius: `5px`,
-      width: `40px`,
-      height: `25px`,
-      display: `flex`,
-      alignItems: `center`,
-      justifyContent: `center`,
-      transition: `opacity 0.3s ease`,
-      border: `none`,
-      outline: `none`,
-      background: `none`,
-      cursor: `pointer`,
-      padding: 0,
-      appearance: `none`,
-      "&:hover, &:focus": { opacity: 1 },
-    }}
-  >
-    {isEn ? `Portuguese` : `English`}
-  </button>
-)
-
-export default ColorModeToggle
+export default LangToggle

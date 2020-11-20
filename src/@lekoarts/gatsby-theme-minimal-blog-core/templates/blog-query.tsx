@@ -4,8 +4,11 @@ import BlogComponent from "../components/blog"
 export default BlogComponent
 
 export const query = graphql`
-  query($formatString: String!) {
-    allPost(sort: { fields: date, order: DESC }) {
+  query($locale: String!, $formatString: String!) {
+    allPost(
+      filter: { tags: { elemMatch: { name: { eq: $locale } } } }
+      sort: { fields: date, order: DESC }
+    ) {
       nodes {
         slug
         title

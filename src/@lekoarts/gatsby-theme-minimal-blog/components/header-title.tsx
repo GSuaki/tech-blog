@@ -11,11 +11,11 @@ const HeaderTitle = () => {
   const { basePath } = useMinimalBlogConfig()
   const { locale, defaultLang } = useLocalization()
 
-  const lang = defaultLang === locale ? '' : locale
+  const lang = defaultLang === locale ? '' : `/${locale}`
 
   return (
     <Link
-      to={replaceSlashes(`/${basePath}/${lang}`)}
+      to={replaceSlashes(`/${basePath}${lang}`)}
       aria-label={`${siteTitle} - Back to home`}
       sx={{ color: `heading`, textDecoration: `none` }}
     >

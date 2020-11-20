@@ -2,6 +2,7 @@
 import { jsx } from "theme-ui"
 import { Link } from "gatsby"
 import { useIntl } from "react-intl"
+import { useLocalization } from "gatsby-theme-i18n"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
 import Title from "@lekoarts/gatsby-theme-minimal-blog/src/components/title"
 import Listing from "@lekoarts/gatsby-theme-minimal-blog/src/components/listing"
@@ -35,7 +36,10 @@ const Homepage = ({ posts }: PostsProps) => {
   const { basePath, blogPath } = useMinimalBlogConfig()
   const { siteTitle } = useSiteMetadata()
   const intl = useIntl()
-  
+  const { locale, defaultLang } = useLocalization()
+
+  const lang = defaultLang === locale ? '' : `/${locale}`
+
   return (
     <Layout>
       <h1 sx={visuallyHidden}>{siteTitle}</h1>
@@ -43,7 +47,7 @@ const Homepage = ({ posts }: PostsProps) => {
         <Hero />
       </section>
       <Title text={intl.formatMessage({ id: 'Latest Posts' })}>
-        <Link to={replaceSlashes(`/${basePath}/${blogPath}`)}>{intl.formatMessage({ id: 'Read all posts' })}</Link>
+        <Link to={replaceSlashes(`/${basePath}${lang}/${blogPath}`)}>{intl.formatMessage({ id: 'Read all posts' })}</Link>
       </Title>
       <Listing posts={posts} showTags={false} />
       <List sx={{ variant: `section_bottom` }}>

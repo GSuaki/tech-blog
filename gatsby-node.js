@@ -100,9 +100,7 @@ exports.createPages = async ({ actions, graphql, reporter }) => {
     return
   }
 
-  const books = result.data.allBook.nodes
-
-  books.forEach((book) => {
+  result.data.allBook.nodes.forEach((book) => {
     createPage({
       path: book.slug,
       component: BookTemplate,

@@ -19,14 +19,14 @@ const Navigation = ({ nav }: NavigationProps) => {
   const { basePath } = useMinimalBlogConfig()
   const { locale, defaultLang } = useLocalization()
 
-  const lang = defaultLang === locale ? '' : locale
-
+  const lang = defaultLang === locale ? '' : `/${locale}`
+  console.log(lang)
   return (
     <React.Fragment>
       {nav && nav.length > 0 && (
         <nav sx={{ "a:not(:last-of-type)": { mr: 3 }, fontSize: [1, `18px`], ".active": { color: `heading` } }}>
           {nav.map((item) => (
-            <TLink key={item.slug} as={Link} activeClassName="active" to={replaceSlashes(`/${basePath}/${lang}/${item.slug}`)}>
+            <TLink key={item.slug} as={Link} activeClassName="active" to={replaceSlashes(`/${basePath}${lang}/${item.slug}`)}>
               {intl.formatMessage({ id: item.title })}
             </TLink>
           ))}

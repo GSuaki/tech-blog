@@ -3,14 +3,19 @@ import React from "react"
 import { jsx, Heading, Box, Flex, Link as TLink } from "theme-ui"
 import { graphql, Link } from "gatsby"
 import { useIntl } from "react-intl"
+import { useLocalization } from "gatsby-theme-i18n"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
 import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo"
 
 const ListItem = ({ item }) => {
   const intl = useIntl()
+  const { locale, defaultLang } = useLocalization()
+
+  const lang = defaultLang === locale ? '' : `/${locale}`
+
   return (
     <Box mb={4} mt={4}>
-      <TLink as={Link} to={item.slug} sx={{ fontSize: [1, 2, 3], color: `text` }}>
+      <TLink as={Link} to={`${lang}${item.slug}`} sx={{ fontSize: [1, 2, 3], color: `text` }}>
         {item.title}
       </TLink>
       <p sx={{ color: `secondary`, mt: 1, a: { color: `secondary` }, fontSize: [1, 1, 2] }}>

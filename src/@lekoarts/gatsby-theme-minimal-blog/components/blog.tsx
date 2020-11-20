@@ -3,6 +3,7 @@ import { jsx, Heading, Link as TLink } from "theme-ui"
 import { Link } from "gatsby"
 import { useIntl } from "react-intl"
 import { Flex } from "@theme-ui/components"
+import { useLocalization } from "gatsby-theme-i18n"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
 import Listing from "@lekoarts/gatsby-theme-minimal-blog/src/components/listing"
 import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo"
@@ -28,6 +29,9 @@ type PostsProps = {
 const Blog = ({ posts }: PostsProps) => {
   const intl = useIntl()
   const { tagsPath, basePath } = useMinimalBlogConfig()
+  const { locale, defaultLang } = useLocalization()
+
+  const lang = defaultLang === locale ? '' : `/${locale}`
 
   return (
     <Layout>
@@ -39,7 +43,7 @@ const Blog = ({ posts }: PostsProps) => {
         <TLink
           as={Link}
           sx={{ variant: `links.secondary`, marginY: 2 }}
-          to={replaceSlashes(`/${basePath}/${tagsPath}`)}
+          to={replaceSlashes(`/${basePath}${lang}/${tagsPath}`)}
         >
           {intl.formatMessage({ id: "View all tags" })}
         </TLink>

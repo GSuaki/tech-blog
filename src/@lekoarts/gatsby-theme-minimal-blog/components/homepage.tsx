@@ -12,7 +12,8 @@ import useSiteMetadata from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-s
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes"
 import { visuallyHidden } from "@lekoarts/gatsby-theme-minimal-blog/src/styles/utils"
 // @ts-ignore
-import Hero from "../texts/hero"
+import HeroPTBR from "../texts/hero.pt"
+import HeroENUS from "../texts/hero.en"
 // @ts-ignore
 import Bottom from "../texts/bottom"
 
@@ -44,7 +45,7 @@ const Homepage = ({ posts }: PostsProps) => {
     <Layout>
       <h1 sx={visuallyHidden}>{siteTitle}</h1>
       <section sx={{ mb: [4], p: { fontSize: [1, 2, 3], mt: 2 }, variant: `section_hero` }}>
-        <Hero />
+        { locale === 'en' ? <HeroENUS /> : <HeroPTBR /> }
       </section>
       <Title text={intl.formatMessage({ id: 'Latest Posts' })}>
         <Link to={replaceSlashes(`/${basePath}${lang}/${blogPath}`)}>{intl.formatMessage({ id: 'Read all posts' })}</Link>

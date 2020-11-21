@@ -54,8 +54,10 @@ export default ({ data }) => {
 }
 
 export const query = graphql`
-    query {
-        allBook {
+    query($locale: String!) {
+        allBook(
+          filter: { tags: { eq: $locale } }
+        ) {
             nodes {
                 title
                 tags

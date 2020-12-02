@@ -6,7 +6,7 @@ import { Link } from "gatsby"
 import { useLocalization } from "gatsby-theme-i18n"
 import Layout from "./layout"
 import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config"
-import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo"
+import SEO from "./seo"
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes"
 
 type PostsProps = {

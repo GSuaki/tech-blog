@@ -2,7 +2,7 @@
 import { jsx, Box } from "theme-ui"
 import { useIntl } from "react-intl"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
-import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo"
+import SEO from "../@lekoarts/gatsby-theme-minimal-blog/components/seo"
 
 const NotFound = () => {
   const intl = useIntl()

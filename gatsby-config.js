@@ -10,8 +10,8 @@ module.exports = {
     siteTitle: 'Gabriel Suaki',
     title: "Gabriel Suaki",
     author: "Gabriel Suaki",
-    description: "",
-    siteUrl: "https://www.gatsbyjs.com/",
+    description: "Eai dev, tudo bom? Sou Gabriel Suaki e esse é meu tech blog, espero que curta o conteúdo!",
+    siteUrl: "https://tech.gsuaki.com/",
   },
   plugins: [
     {

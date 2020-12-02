@@ -20,7 +20,7 @@ const Navigation = ({ nav }: NavigationProps) => {
   const { locale, defaultLang } = useLocalization()
 
   const lang = defaultLang === locale ? '' : `/${locale}`
-  console.log(lang)
+
   return (
     <React.Fragment>
       {nav && nav.length > 0 && (

@@ -5,7 +5,7 @@ import { graphql, Link } from "gatsby"
 import { useIntl } from "react-intl"
 import { useLocalization } from "gatsby-theme-i18n"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
-import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo"
+import SEO from "../@lekoarts/gatsby-theme-minimal-blog/components/seo"
 
 const ListItem = ({ item }) => {
   const intl = useIntl()

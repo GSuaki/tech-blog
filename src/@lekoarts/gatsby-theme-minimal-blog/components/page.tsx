@@ -3,7 +3,7 @@ import { jsx, Flex, Heading } from "theme-ui"
 import { MDXRenderer } from "gatsby-plugin-mdx"
 import { useIntl } from "react-intl"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
-import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo"
+import SEO from "./seo"
 
 type PageProps = {
   data: {

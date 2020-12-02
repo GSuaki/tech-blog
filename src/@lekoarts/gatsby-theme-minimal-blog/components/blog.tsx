@@ -6,7 +6,7 @@ import { Flex } from "@theme-ui/components"
 import { useLocalization } from "gatsby-theme-i18n"
 import Layout from "@lekoarts/gatsby-theme-minimal-blog/src/components/layout"
 import Listing from "@lekoarts/gatsby-theme-minimal-blog/src/components/listing"
-import SEO from "@lekoarts/gatsby-theme-minimal-blog/src/components/seo"
+import SEO from "./seo"
 import useMinimalBlogConfig from "@lekoarts/gatsby-theme-minimal-blog/src/hooks/use-minimal-blog-config"
 import replaceSlashes from "@lekoarts/gatsby-theme-minimal-blog/src/utils/replaceSlashes"
 
